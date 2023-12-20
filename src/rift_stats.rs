@@ -31,6 +31,10 @@ impl RiftStats {
         }
     }
 
+    pub fn get_num_games(&self) -> usize {
+        return self.games.len();
+    }
+
     pub fn get_average_game_length(&self) -> f64 {
         let num_games = self.games.len();
         let mut added_overall: i64 = 0;
@@ -67,7 +71,6 @@ pub fn sort_hashmap_to_vec(input_map: &HashMap<String, i64>) -> Vec<(&String, &i
     for input in input_map {
         for (index, e) in out.clone().iter().enumerate() {
             if input.1 > e.1 {
-                println!("{:?}", input);
                 out.insert(index, input);
                 break;
             }
